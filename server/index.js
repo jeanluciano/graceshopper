@@ -16,7 +16,8 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500).send(err.message || 'Internal server error.');
 });
 
-app.listen(3000, ()=>{
+app.listen(3000, (err)=>{
+  if (err) throw err;
   console.log('shits working.')
 })
 
