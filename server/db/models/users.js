@@ -8,7 +8,7 @@ module.exports = db.define('User', {
     type: Sequelize.STRING,
     allowNull: false,
   },
-   email: {
+  email: {
     type: Sequelize.STRING,
     isEmail: true,
     unique: true,
@@ -16,11 +16,15 @@ module.exports = db.define('User', {
   },
   password: {
     type: Sequelize.STRING,
-    allowNull: false,
   },
   salt: {
     type: Sequelize.STRING,
-  }
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  },
+  googleId: Sequelize.STRING,
 },
 {
   instanceMethods: {
