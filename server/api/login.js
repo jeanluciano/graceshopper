@@ -9,14 +9,14 @@ router.get("/", (req, res, next) => {
         }
     })
     .then( user => {
-        if (user.Model.correctPassword(req.body.password)){
+        if (user && user.Model.correctPassword(req.body.password)){
             //do login stuff
             req.login(user, err => {
                 if(err) next(err)
                 else res.json(user)
             })
         } else {
-            res.send(401).send('Username or Password is incorrect.')
+            res.status(401).send('Username or Password is incorrect.')
         }
     })
     .catch(next);

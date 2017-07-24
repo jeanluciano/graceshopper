@@ -42,3 +42,4 @@ app.listen(3000, (err) => {
   console.log('shits working.')
 })
 
+module.exports = app

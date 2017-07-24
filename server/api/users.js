@@ -3,11 +3,12 @@ const User = require('../db/models/users')
 const router = express.Router()
 
 router.post('/', (req, res, next) => {
+  console.log('router/post')
   User.create(req.body)
   .then(user => {
     req.login(user, err => {
       if (err) next(err)
-      else res.json(user)
+      else res.status(201).json(user)
     })
   })
   .catch(next)
